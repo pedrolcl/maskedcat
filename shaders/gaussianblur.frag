@@ -77,8 +77,9 @@ void main(void)
 {
     vec3 sum = vec3(0.0, 0.0, 0.0);
     float gaussianSum = 0.0;
-    for (int x = -radius; x <= radius; ++x) {
-        for (int y = -radius; y <= radius; ++y) {
+    const int r = 8;
+    for (int x = -r; x <= r; ++x) {
+        for (int y = -r; y <= r; ++y) {
             vec2 c = qt_TexCoord0 + vec2(x, y) * pixelStep;
             float w = gaussianWeight(vec2(x, y));
             sum += texture(src, c).rgb * w;
